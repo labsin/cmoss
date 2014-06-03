@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-export BUILD_ALL=true
+export BUILD_ALL="true"
 if ! source ./env-setup.sh $@
 then
     exit 1
@@ -25,8 +25,9 @@ do
 
 	export ROOTDIR=${ROOTDIR}
 	export PLATFORM=${PLATFORM}
-	export DROIDTOOLS=${TMPDIR}/droidtoolchains/${PLATFORM}/bin/${PLATFORM}
-	export SYSROOT=${TMPDIR}/droidtoolchains/${PLATFORM}/sysroot
+	export TOOLCHAIN=${TMPDIR}/droidtoolchains/${PLATFORM}
+	export DROIDTOOLS=${TOOLCHAIN}/bin/${PLATFORM}
+	export SYSROOT=${TOOLCHAIN}/sysroot
 
 	# Build minizip
 	${TOPDIR}/build-droid/build-minizip.sh > "${LOGPATH}-minizip.log"

@@ -117,7 +117,7 @@ do
 done
 
 # Set Up single build env var
-if [ -n "$BUILD_ALL" ]
+if [ -z "${BUILD_ALL}" ]
 then
     echo "Setting up single build env variables"
     PLATFORM="arm-linux-androideabi"
@@ -136,8 +136,9 @@ then
 
     export ROOTDIR=${ROOTDIR}
     export PLATFORM=${PLATFORM}
-    export DROIDTOOLS=${TMPDIR}/droidtoolchains/${PLATFORM}/bin/${PLATFORM}
-    export SYSROOT=${TMPDIR}/droidtoolchains/${PLATFORM}/sysroot
+    export TOOLCHAIN=${TMPDIR}/droidtoolchains/${PLATFORM}
+    export DROIDTOOLS=${TOOLCHAIN}/bin/${PLATFORM}
+    export SYSROOT=${TOOLCHAIN}/sysroot
 fi
 
 popd
