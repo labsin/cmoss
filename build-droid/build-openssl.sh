@@ -39,7 +39,7 @@ tar xvf "openssl-${OPENSSL_VERSION}.tar.gz"
 # Build
 pushd "openssl-${OPENSSL_VERSION}"
 
-DROID_GCC_LIBS=${TMPDIR}/droidtoolchains/${PLATFORM}/lib/gcc/arm-linux-androideabi/4.4.3
+DROID_GCC_LIBS=${TMPDIR}/droidtoolchains/${PLATFORM}/lib/gcc/arm-linux-androideabi/4.8
 
 export CC=${DROIDTOOLS}-gcc
 export LD=${DROIDTOOLS}-ld
