@@ -56,7 +56,7 @@ export CPPFLAGS="-I${SYSROOT}/usr/include -DNDEBUG"
 export CXXFLAGS="-I${SYSROOT}/usr/include -DNDEBUG"
 export LIBS="-lc"
 
-./configure --with-protoc=protoc --with-zlib=no --host=arm-eabi --prefix=${ROOTDIR} --with-sysroot=${SYSROOT} -enable-cross-compile 
+./configure --with-protoc=protoc --with-zlib=no --host=${ARCH}-android-linux --prefix=${ROOTDIR} --with-sysroot=${SYSROOT} -enable-cross-compile 
 
 mv "src/Makefile" "src/Makefile~"
 sed "s/all-am: Makefile \$(LTLIBRARIES) \$(PROGRAMS) \$(DATA) \$(HEADERS)/all-am: Makefile \$(LTLIBRARIES) \$(HEADERS)/" src/Makefile~ > src/Makefile~1
